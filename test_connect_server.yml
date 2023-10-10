@@ -1,0 +1,11 @@
+---
+- name: Connect to a remote server
+  hosts: servers
+  tasks:
+    - name: Run uptime command
+      command: uptime
+      register: command_output
+
+    - name: Display command output
+      debug:
+        var: command_output.stdout_lines
