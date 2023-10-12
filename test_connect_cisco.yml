@@ -1,0 +1,11 @@
+---
+- name: Connect to cisco node
+  hosts: cisco_node
+  tasks:
+    - name: Run uptime command
+      command: copy running-config flashxxx
+      register: result
+
+    - name: Display command output
+      debug:
+        var: result.stdout_lines
